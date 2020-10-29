@@ -1,1 +1,3 @@
-# EECS6893_Big-Data-Analytics
+# EECS6893 Big Data Analytics
+
+## @Columbia University, Fall 2020 
