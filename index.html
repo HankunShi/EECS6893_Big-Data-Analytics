@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+
+<head>
+    <title>music personlization</title>
+</head>
+<body>
+    <h1>music personlization</h1>
+    
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <h3>lyrics cloud</h3>
+
+    <!-- Create a div for lyrics cloud -->
+        
+        
+    <div class="lyricsCloud"></div>
+    <script src="lyricsCloud.js"></script>
+    
+    <!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+    
+    <script>
+        // Set-Up
+        var margin = {top: 20, right: 20, bottom: 20, left: 20},
+            width = Math.min(800, window.innerWidth - 10) - margin.left - margin.right,
+            height = Math.min(width, window.innerHeight) - margin.top - margin.bottom;
+				
+
+        var paragraph = "Associative arrays can be incredibly convenient for various applications. For example, you could keep a list of student IDs (student name/id) or a list of prices (product name/price) in a dictionary. The fundamental building block of just about every text analysis application is a concordance, a list of all words in a document document document document along with how many times each word occurred. A dictionary is the perfect data structure to hold this information.";
+        
+        // Draw the cloud
+        var lyricsCloudOptions = {
+                width: width,
+                height: height,
+                margin: margin,
+                color: ["#f58f7c","#7cf5c2","#f5cc7c","#857cf5"],
+                num_words_max: 50
+			};
+        
+        //Call function to draw the lyrics Cloud
+        LyricsCloud(".lyricsCloud", paragraph, lyricsCloudOptions);
+
+
+    </script>
+        
+    <h3>radar chart</h3>
+    
+    <!-- Create a div for radar chart -->
+    <div class="radarChart"></div>
+    <script src="radarChart.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		
+    <script>
+        // Set-Up
+        var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(800, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+					
+        // Data 
+        var radar_data = [
+					  [// your favorite tracks summary
+						{axis:"Acousticness",value:0.5},
+						{axis:"Danceability",value:0.8},
+						{axis:"Energy",value:0.2},
+						{axis:"Instrumentalness",value:0.7},
+						{axis:"Liveness",value:0.5},
+						{axis:"Loudness",value:0.5},
+						{axis:"Speechiness",value:0.5},
+						{axis:"Valence",value:0.5}		
+					  ],[// US top 100 summary
+						{axis:"Acousticness",value:0.7},
+						{axis:"Danceability",value:0.6},
+						{axis:"Energy",value:0.3},
+						{axis:"Instrumentalness",value:0.6},
+						{axis:"Liveness",value:0.5},
+						{axis:"Loudness",value:0.5},
+						{axis:"Speechiness",value:0.3},
+						{axis:"Valence",value:0.3}
+					  ]
+					];
+        
+        // Draw the chart
+        var color = d3.scale.ordinal()
+            .range(["#f58f7c","#7ce2f5"]);
+				
+        var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 0.5,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color
+			};
+        
+        //Call function to draw the Radar chart
+        RadarChart(".radarChart", radar_data, radarChartOptions);
+		</script>
+    
+    
+</body>
+</html>
+
+
